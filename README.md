@@ -13,7 +13,7 @@ iGALLERIA / iVet Mediaとの通信用 4D Component
 + <a href="#メソッドリファレンス"><b>メソッドリファレンス</b></a>
  - <a href="#ig_login"><b><i>iG_Login</i></b></a>
  - <a href="#ig_logout"><b><i>iG_Logout</i></b></a>
- - <a href="#ig_upload_media--ivet-media%E7%94%A8"><b><i>iG_Upload_Media</i></b></a>
+ - <a href="#ig_upload_media--ivet-media%E7%94%A8"><b><i>iG_Upload_Media</i></b></a><sup> ※ iVet Media用</sup>
  - <a href="#ig_upload_send-ver06%E3%81%BE%E3%81%A7"><font color="gray"><i>iG_Upload_Send</i></font></a><sup> ※ v0.6まで</sup>
  - <a href="#ig_api_gethttpheader"><b><i>iG_API_GetHttpHeader</i></b></a>
  - <a href="#ig_api_getversion"><b><i>iG_API_GetVersion</i></b></a>
