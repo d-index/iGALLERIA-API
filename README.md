@@ -44,7 +44,7 @@ __▲「セキュリティ」ページの「コンポーネントの〝On Host D
 
 この設定がなされていないと、iGALLERIA APIコンポーネントは正常に動作しません。
 コンポーネントメソッドから「1」のAPIエラーが返ってきて、errorオブジェクトの<font color="maroon"><b>iG_ERR_Msg</b></font>プロパティには<b>「起動時に「On Host Database Event」メソッドが実行されていません。データベース設定が必要です。」</b>というメッセージが返ってきます。
-###<b>この設定をOFF → ON にした後は、<font color="red"><u>必ず4Dの再起動</u></font>が必要です。</b>
+###この設定をOFF → ON にした後は、<b><font color="red">必ず4Dの再起動</font></b>が必要です。
 <br>
 <br>
 
