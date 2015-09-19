@@ -1,6 +1,44 @@
 # iGALLERIA-API
 iGALLERIA / iVet Mediaとの通信用 4D Component
 
+#目次
+
++ <a href="#現行バージョン"><b>現行バージョン</b></a>
++ <a href="#ダウンロード"><b>ダウンロード</b></a>
++ <a href="#インストール方法"><b>インストール方法</b></a>
+ + <a href="#ファイルの配置"><b>ファイルの配置</b></a>
+ + <a href="#データベース設定"><b>データベース設定</b></a>
++ <a href="#エクスプローラでの表示"><b>エクスプローラでの表示</b></a>
++ <a href="#メソッドエディタでの表示"><b>メソッドエディタでの表示</b></a>
++ <a href="#メソッドリファレンス"><b>メソッドリファレンス</b></a>
+ - <a href="#ig_login"><b><i>iG_Login</i></b></a>
+ - <a href="#ig_logout"><b><i>iG_Logout</i></b></a>
+ - <a href="#ig_upload_media--ivet-media%E7%94%A8"><b><i>iG_Upload_Media</i></b></a>
+ - <a href="#ig_upload_send-ver06%E3%81%BE%E3%81%A7"><font color="gray"><i>iG_Upload_Send</i></font></a><sup> ※ v0.6まで</sup>
+ - <a href="#ig_api_gethttpheader"><b><i>iG_API_GetHttpHeader</i></b></a>
+ - <a href="#ig_api_getversion"><b><i>iG_API_GetVersion</i></b></a>
+ - <a href="#ig_daemon_start"><b><i>iG_Daemon_Start</i></b></a>
+ - <a href="#ig_pref_set"><b><i>iG_Pref_Set</i></b></a>
+ - <a href="#ig_pref_get"><b><i>iG_Pref_Get</i></b></a>
+ - <a href="#ig_folder_list"><b><i>iG_Folder_List</i></b></a>
+ - <a href="#ob_new"><b><i>OB_New</i></b></a>
+* <a href="#%E4%BB%8A%E5%BE%8C%E5%AE%9F%E8%A3%85%E4%BA%88%E5%AE%9A%E3%81%AE%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89"><b>今後実装予定のメソッド</b></a>
+ - <a href="#ig_folder_new"><b><i>iG_Folder_New</i></b></a>
+ - <a href="#ig_folder_move"><b><i>iG_Folder_Move</i></b></a>
+ - <a href="#ig_item_list"><b><i>iG_Item_List</i></b></a>
+ - <a href="#ig_folder_attributes"><b><i>iG_Folder_Attributes</i></b></a>
+
+#現行バージョン
+0.7  
+
+* v0.6までのiG_Upload_Sendは無くなりました。
+* 今後、アップロード系のコマンドは以下の３つに細分化される予定です。
+ + iG_Upload：汎用アップロード
+ + iG_Upload_DICOM：カルテAPI向け（DICOMファイル）
+ + iG_Upload_Media：カルテAPI向け（DICOM以外のメディアファイル）
+* 現行のv0.7では、<a href="#ig_upload_media"><b><i>iG_Upload_Media</i></b></a>だけが実装済みです。
+
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 #ダウンロード
 
@@ -16,6 +54,7 @@ tr.igalleria.jpのiGALLERIAにアップロードしてあります。
 
 <font color="red"><b>※11/23 PM11 : Ver. 0.6 に更新</b></font>
 
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 #インストール方法
 ##ファイルの配置
@@ -30,6 +69,8 @@ __▲ サンプルDB__
 __▲ パッケージを開いたところ__
 
 コンポーネントファイルは「__Components__」フォルダに入っているDBファイルです。
+
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 ##データベース設定
 
@@ -46,6 +87,7 @@ __▲「セキュリティ」ページの「コンポーネントの〝On Host D
 コンポーネントメソッドから「1」のAPIエラーが返ってきて、errorオブジェクトの<font color="maroon"><b>iG_ERR_Msg</b></font>プロパティには<b>「起動時に「On Host Database Event」メソッドが実行されていません。データベース設定が必要です。」</b>というメッセージが返ってきます。
 ###この設定をOFF → ON にした後は、<b><font color="red">必ず4Dの再起動</font></b>が必要です。
 <br>
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 <br>
 
 #エクスプローラでの表示
@@ -63,6 +105,8 @@ __▲「セキュリティ」ページの「コンポーネントの〝On Host D
 ![4DScreenSnapz003.png](https://qiita-image-store.s3.amazonaws.com/1537/55833/06dde066-3e6b-27b8-9f84-1d9827915d05.png)
 図4：オブジェクト毎によく使うプロパティが定数として定義済
 
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
+
 #メソッドエディタでの表示
 
 ![4DScreenSnapz001.png](https://qiita-image-store.s3.amazonaws.com/1537/55833/a27444ba-3b8a-cd64-f778-ffa47083b641.png)
@@ -70,6 +114,8 @@ __▲「セキュリティ」ページの「コンポーネントの〝On Host D
 
 ![4DScreenSnapz006.png](https://qiita-image-store.s3.amazonaws.com/1537/55833/79a06daf-5443-b5c6-6c9f-727d886d7809.png)
 図6：APIメソッド名の上にマウスホバーで解説をツールTip表示
+
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 #メソッドリファレンス
 ##<font color="#428BCA"><b>iG_Login</b></font>
@@ -81,10 +127,10 @@ api_err &nbsp; := &nbsp; <I><b>iG_Login</b></I> &nbsp; ( &nbsp; conn &nbsp; ; &n
 | 任意 | $2：error | ← | Ｏ |エラー詳細情報|
 |  | $0：api_err | ← | Ｌ |エラー番号|
 
-###機能 
+###__機能__ 
 iGalleriaへログインする。
 
-###引数
+###__引数__
 
 ログイン成功後は、\$1に渡した接続情報オブジェクトはアクティブ状態に変わり、他のAPIコンポーネントメソッドに渡して、同一セッションの処理として実行出来るようになります。
 \$2の使用は任意ですが、初期化済みのオブジェクトが必要です。undefinedのままのオブジェクトは渡せません。オブジェクトの初期化に便利なコンポーネントメソッド<a href="#ob_new"><b><i>OB_New</i></b></a> の活用をお勧めします。
@@ -133,7 +179,7 @@ iGalleriaへログインする。
 </dd>
 </dl>
 
-###実行例
+###__実行例__
 <pre>
 C_LONGINT ( $err_num )
   // コネクション設定
@@ -151,6 +197,7 @@ If ($err_num = 0)
 End if
 </pre>
 
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 ##<font color="#428BCA"><b>iG_Logout</b></font>
 api_err &nbsp; := &nbsp; <I><b>iG_Logout</b></I> &nbsp; ( &nbsp; conn &nbsp; ; &nbsp; error &nbsp; )
@@ -163,12 +210,12 @@ api_err &nbsp; := &nbsp; <I><b>iG_Logout</b></I> &nbsp; ( &nbsp; conn &nbsp; ; &
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 iGalleriaからログアウトします。
 このメソッド実行後は$1の接続情報オブジェクトのセッションは無効になります。
 同じiGalleriaへ同じユーザ権限でアクセスするには、再度<a href="#ig_login"><b><i>iG_Login</i></b></a>でログインする必要があります。
 
-###引数
+###__引数__
 　パラメータエラーは、多くの場合、<font color="green"><b>\$1</b></font>の接続情報に問題があります。基本的にログインに成功した時のものをそのまま使うのが定石となります。ログインに成功した接続情報オブジェクトには特殊な内部情報が含まれていますので、既にログアウトしてしまったセッションの接続情報オブジェクトは使えません。
 　また、オプションである<font color="green"><b>\$2</b></font>のエラー詳細情報に渡すオブジェクト型変数が初期化されていなかった場合にもパラメータエラーが返ってきます。
 
@@ -207,7 +254,7 @@ iGalleriaからログアウトします。
 </dd>
 </dl>
 
-###実行例
+###__実行例__
 <pre>
 C_LONGINT ( $err_num )
   // コネクション設定
@@ -234,7 +281,7 @@ If ($err_num = 0)
 End if
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 ##<font color="#428BCA"><b>iG_Upload_Media</b><sup> ※ iVet Media用</sup></font>
@@ -250,7 +297,7 @@ api_err &nbsp; := &nbsp; <I><b>iG_Upload_Media</b></I> &nbsp; ( &nbsp; conn &nbs
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-####__機能__
+###__機能__
 　iVet Mediaへ__DICOM以外__のファイルをアップロードします。アップロードされた画像やファイルはカルテAPIのWebArea（Media側）から閲覧可能になります。
 　アップロード出来るファイルにはサイズ制限があります。デフォルトで<b><font color="red">１００MB</font></b>に設定されています。このサイズを超えるファイルを渡した場合はパラメータエラーになります。この設定値を変更するには <b><i><a href="#ig_pref_set">iG_Pref_Set</a></i></b> を使います。
 
@@ -357,7 +404,7 @@ OsiriX Dataフォルダや監視フォルダなどの自動取り込み機能の
 この設定を変更するには <b><i><a href="#ig_pref_set">iG_Pref_Set</a></i></b> を使います。ただし、このサイズ未満ならアップロードの成功を保証するものではありません。サーバー側のメモリ状況によっては、このサイズ未満でもエラーになる可能性はあります。あくまで、どれくらい大きなファイルまでアップロードをトライさせても良いかを決めるだけです。
 
 
-###実行例
+###__実行例__
 <pre>
   // コネクション設定
   〜 省略 〜
@@ -401,6 +448,7 @@ If ($err_num = 0)
 End if
 </pre>
 
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -408,8 +456,7 @@ End if
 
 
 
-
-##<font color="#999"><b>iG_Upload_Send</b><sup> ※ver.0.6</sup></font>
+##<font color="#999"><b>iG_Upload_Send</b><sup> ※ver.0.6まで</sup></font>
 api_err &nbsp; := &nbsp; <I><b>iG_Upload_Send</b></I> &nbsp; ( &nbsp; conn &nbsp; ; &nbsp; send &nbsp; ; &nbsp; resp &nbsp; ; &nbsp; error &nbsp; )
 
 |    | 引数 |    | 型 | 説明 |
@@ -422,12 +469,12 @@ api_err &nbsp; := &nbsp; <I><b>iG_Upload_Send</b></I> &nbsp; ( &nbsp; conn &nbsp
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-####機能
+###__機能__
 　iGalleriaへファイルをアップロードします。アップロードが成功してもサムネールの生成はログアウトまでペンディングされます。
 　アップロード出来るファイルにはサイズ制限があります。デフォルトで<b><font color="red">１００MB</font></b>に設定されています。このサイズを超えるファイルを渡した場合はパラメータエラーになります。この設定値を変更するには <b><i><a href="#ig_pref_set">iG_Pref_Set</a></i></b> を使います。
 
 
-###引数
+###__引数__
 　引数１〜４全てオブジェクト型。\$3、4は受け取り専用ですが使用は任意です。
 　アップロードが成功したファイルをWebページ上で確認する際に必要な情報（folder_code、item_codeなど）を得るためには、$3へオブジェクトを渡して、レスポンスデータを受け取る必要があります。
 
@@ -529,7 +576,7 @@ OsiriX Dataフォルダや監視フォルダなどの自動取り込み機能の
 この設定を変更するには <b><i><a href="#ig_pref_set">iG_Pref_Set</a></i></b> を使います。ただし、このサイズ未満ならアップロードの成功を保証するものではありません。サーバー側のメモリ状況によっては、このサイズ未満でもエラーになる可能性はあります。あくまで、どれくらい大きなファイルまでアップロードをトライさせても良いかを決めるだけです。
 
 
-###実行例
+###__実行例__
 <pre>
   // コネクション設定
   〜 省略 〜
@@ -573,7 +620,7 @@ If ($err_num = 0)
 End if
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -592,11 +639,11 @@ value &nbsp; := &nbsp; <I><b>iG_API_GetHttpHeader</b></I> &nbsp; ( &nbsp; header
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 　<b><i><a href="#ig_upload_send">iG_Upload_Send</a></i></b> で得たレスポンスに含まれるhttpヘッダー情報から、任意のヘッダー値を抽出します。
 
-###引数
+###__引数__
 
 <dl>
 <dt>headers</dt>
@@ -633,7 +680,7 @@ value &nbsp; := &nbsp; <I><b>iG_API_GetHttpHeader</b></I> &nbsp; ( &nbsp; header
 将来、ＡＰＩ機能の拡張のために様々なカスタムhttpヘッダーが増えていく事になります。
 現在利用出来る最新のカスタムヘッダー名の選択肢は、定数グループ __〓 iGalleria API：Response：Header__ から閲覧出来ます。
 
-###実行例
+###__実行例__
 
 <pre>
 // ■ アップロード
@@ -659,7 +706,7 @@ If ($err_num >= 3) // 通信確立後のエラーは3以上
 End if
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -676,10 +723,10 @@ api_ver &nbsp; := &nbsp; <I><b>iG_API_GetVersion</b></I>
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 iGalleria APIのコンポーネント側のバージョンを返します。
 
-###引数
+###__引数__
 
 　引数はありません。戻り値にバージョンが返ってきます。
 
@@ -692,14 +739,14 @@ iGalleria側のAPIバージョンの取得は<a href="#ig_api_gethttpheader"><b>
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_TEXT ( $api_ver )
 $api_ver := iG_API_GetVersion
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -717,13 +764,13 @@ api_err &nbsp; := &nbsp; <I><b>iG_Daemon_Start</b></I> &nbsp; ( &nbsp; conn &nbs
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 任意のiGalleriaデーモンプロセスをRESUMEさせます。
 ※現在のところ、サムネール生成デーモン（<font color="maroon"><b>iG_Daemon_Thumbnail</b></font>）のみ対応。
 
 ファイルをアップロードしただけでは、サムネールタスクはキューに登録されるが、タスクの実行はペンディングされています。これは、アップロード受け入れを出来るだけ早く終わらせるための処理スケジュール戦略です。通常は<a href="#ig_logout"><b><i>iG_Logout</i></b></a>が自動的にデーモンをRESUMEさせるので、全てのアップロードが終わればログアウトするだけで、サムネールタスクの処理は始まりますが、何らかの理由で明示的にデーモン起動タイミングをコントロールしたい場合に使います。
 
-###引数
+###__引数__
 
 <dl>
   <dt>conn</dt>
@@ -778,14 +825,14 @@ api_err &nbsp; := &nbsp; <I><b>iG_Daemon_Start</b></I> &nbsp; ( &nbsp; conn &nbs
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
 $err_num := iG_Daemon_Start ( $o_con ; iG_Daemon_Thumbnail )
 </pre>
 
-　
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 　
 　
 ##<font color="#428BCA"><b>iG_Pref_Set</b></font>
@@ -799,7 +846,7 @@ api_err &nbsp; := &nbsp; <I><b>iG_Pref_Set</b></I> &nbsp; ( &nbsp; new &nbsp; ; 
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 APIプリファレンス値を変更する。
 APIプリファレンス値はコンポーネント変数のオブジェクトの幾つかのプロパティとして保持されています。
@@ -807,7 +854,7 @@ APIプリファレンス値はコンポーネント変数のオブジェクト�
 スコープはインタープロセスです。また、このコマンドの実行結果が有効に保たれるのは<font color="red"><b>4Dが終了するまで</b></font>です。常に任意のプリファレンス値で動作させたい場合は、On Startupなどで希望のプリファレンス値に書き換えるコードを実行する必要があります。
 
 
-###引数
+###__引数__
 
 変更したいプリファレンス値を複数一度に更新出来るようにする事と、将来、様々なデータ型のプリファレンス値が追加されても良いように、更新値を指定する引数\$1 <b>new</b>はオブジェクトとして渡す仕様にしています。
 
@@ -860,7 +907,7 @@ APIプリファレンス値はコンポーネント変数のオブジェクト�
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
@@ -870,6 +917,9 @@ OB SET ($new; iG_Pref_Timeout; 30 )// 30秒
 $err_num := iG_Pref_Set ( $new )
 
 </pre>
+
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
+
 
 ##<font color="#428BCA"><b>iG_Pref_Get</b></font>
 api_err &nbsp; := &nbsp; <I><b>iG_Pref_Get</b></I> &nbsp; ( &nbsp; current &nbsp; ; &nbsp; error &nbsp; )
@@ -882,12 +932,12 @@ api_err &nbsp; := &nbsp; <I><b>iG_Pref_Get</b></I> &nbsp; ( &nbsp; current &nbsp
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 現在のAPIプリファレンス設定を得る。
 APIプリファレンス値はコンポーネント変数のオブジェクトの幾つかのプロパティとして保持されています。
 ホストデータベースからは直接アクセス出来ませんので、専用のメソッド（この<a href="#ig_pref_get"><b><i>iG_PREF_Get</i></b></a>と<a href="#ig_pref_set"><b><i>iG_PREF_Set</i></b></a>）が用意されました。
 
-###引数
+###__引数__
 
 <dl>
   <dt>new</dt>
@@ -937,7 +987,7 @@ APIプリファレンス値はコンポーネント変数のオブジェクト�
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num; $timeout )
@@ -949,7 +999,7 @@ If ( $err_num = 0 )
 End if
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -966,12 +1016,12 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_List</b></I> &nbsp; ( &nbsp; conn &nbsp
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 指定した親フォルダの直下にぶら下がるサブフォルダの情報を返す。
 得られる情報は、フォルダ名とフォルダ番号を保持する２つの配列にサブフォルダの数だけ要素が出来ます。
 
-###引数
+###__引数__
 
 得られた全ての情報は __$3 : resp__ 引数（オブジェクト）のプロパティとして返されます。
 
@@ -1054,13 +1104,13 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_List</b></I> &nbsp; ( &nbsp; conn &nbsp
   </dd>
 </dl>
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -1075,10 +1125,10 @@ empty_obj &nbsp; := &nbsp; <I><b>OB_New</b></I>
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 初期化済みのオブジェクトを作成します。
 
-###引数／戻り値
+###__引数__／戻り値
 
 <dl>
   <dt>empty_obj</dt>
@@ -1096,7 +1146,7 @@ empty_obj &nbsp; := &nbsp; <I><b>OB_New</b></I>
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num; $timeout )
@@ -1108,7 +1158,7 @@ If ( $err_num = 0 )
 End if
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 　
 　
 　
@@ -1116,7 +1166,7 @@ End if
 　
 ***
 
-#<b>〓 今後実装予定のコマンド 〓</b>
+#<b>今後実装予定のメソッド</b>
 　
 　
 　
@@ -1135,11 +1185,11 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_New</b></I> &nbsp; ( &nbsp; conn &nbsp;
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 （・・・ *執筆中です* ・・・）
 
-###引数
+###__引数__
 
 （・・・ *執筆中です* ・・・）
 
@@ -1179,13 +1229,13 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_New</b></I> &nbsp; ( &nbsp; conn &nbsp;
   </dd>
 </dl>
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -1202,11 +1252,11 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_Move</b></I> &nbsp; ( &nbsp; conn &nbsp
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 （・・・ *執筆中です* ・・・）
 
-###引数
+###__引数__
 
 （・・・ *執筆中です* ・・・）
 
@@ -1246,13 +1296,13 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_Move</b></I> &nbsp; ( &nbsp; conn &nbsp
   </dd>
 </dl>
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -1270,11 +1320,11 @@ api_err &nbsp; := &nbsp; <I><b>iG_Item_List</b></I> &nbsp; ( &nbsp; conn &nbsp; 
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 （・・・ *執筆中です* ・・・）
 
-###引数
+###__引数__
 
 （・・・ *執筆中です* ・・・）
 
@@ -1315,13 +1365,13 @@ api_err &nbsp; := &nbsp; <I><b>iG_Item_List</b></I> &nbsp; ( &nbsp; conn &nbsp; 
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
 </pre>
 
-
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
 
 
 
@@ -1339,11 +1389,11 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_Attributes</b></I> &nbsp; ( &nbsp; conn
 
 Ｌ＝Longint、Ｔ＝Text、Ｂ＝Boolean、Ｄ＝Date、Ｏ＝Object、Ｐ＝Pointer、Ｘ＝Array
 
-###機能
+###__機能__
 
 （・・・ *執筆中です* ・・・）
 
-###引数
+###__引数__
 
 （・・・ *執筆中です* ・・・）
 
@@ -1384,8 +1434,10 @@ api_err &nbsp; := &nbsp; <I><b>iG_Folder_Attributes</b></I> &nbsp; ( &nbsp; conn
 </dl>
 
 
-###実行例
+###__実行例__
 
 <pre>
 C_LONGINT ( $err_num )
 </pre>
+
+<sup><a href="#目次"> :arrow_up: 目次へ戻る</a></sup>
