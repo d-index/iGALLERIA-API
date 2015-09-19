@@ -1,4 +1,4 @@
-# iGALLERIA-API
+# <i style="color:red">iGALLERIA-API</i>
 iGALLERIA / iVet Mediaとの通信用 4D Component
 
 
